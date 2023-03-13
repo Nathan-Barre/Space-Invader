@@ -8,12 +8,12 @@ BOUNDARY_RIGHT = 735
 BOUNDARY_UP = 0
 BOUNDARY_DOWN = 535
 
-ENEMY_SPEED_X: float = 1
+ENEMY_SPEED_X: float = 2
 ENEMY_SPEED_Y: float = 32
 
-PLAYER_SPEED: float = 1.5
+PLAYER_SPEED: float = 3
 
-BULLET_SPEED: float = 2
+BULLET_SPEED: float = 4
 
 def game_over_text( p_pos_x, p_pos_y, p_font ):
     l_game_over = p_font.render( "GAME OVER", True, (255, 255, 255) )
@@ -117,8 +117,10 @@ if __name__ == '__main__':
                         l_bullet_x = l_player_x
                         fire_bullet( l_bullet_img, l_bullet_x, l_player_y )
             if l_event.type == pygame.KEYUP:
-                if l_event.key == pygame.K_LEFT or l_event.key == pygame.K_RIGHT:
-                    l_player_x_speed = 0
+                if l_event.key == pygame.K_LEFT:
+                    l_player_x_speed += PLAYER_SPEED
+                if l_event.key == pygame.K_RIGHT:
+                    l_player_x_speed -= PLAYER_SPEED
 
         # check player pos
         l_player_x += l_player_x_speed
