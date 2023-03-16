@@ -1,5 +1,5 @@
-from src import main
+from src.main import main
 import sys
 
 if __name__ == '__main__':
-    sys.exit( main.main() )
+    sys.exit( main() )
