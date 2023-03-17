@@ -22,6 +22,9 @@ class Player:
                 self.start_move_left()
             if p_event.key == pygame.K_RIGHT:
                 self.start_move_right()
+            if p_event.key == pygame.K_SPACE:
+                if self.get_ammo() > 0:
+                    self.fire()
         if p_event.type == pygame.KEYUP:
             if p_event.key == pygame.K_LEFT:
                 self.stop_move_left()
